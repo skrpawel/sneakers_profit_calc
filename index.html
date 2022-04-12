@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="style.css">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <wrapper>
+        <div class="profit_calc">
+            <h1>Oblicz profit ryczałt</h1>
+            <label>Cena zakupu</label>
+            <div class="number__input">
+                <input type="text" name="buy_value" id="buy_value" placeholder="Podaj cenę zakupu">
+            </div>
+            <label>Cena sprzedaży</label>
+            <div class="number__input">
+                <input type="text" name="sell_value" id="sell_value" placeholder="Podaj cenę sprzedaży">
+            </div>
+            <label>Koszt wysyłki</label>
+            <div class="number__input">
+                <input type="text" name="shipping_cost" id="shipping_cost" placeholder="Podaj koszt">
+            </div>
+            <h3>Zysk</h3>
+            <div class="number__input">
+                <p id="values">0</p>
+            </div>
+            <h3>Zwrot</h3>
+            <div class="number__input">
+                <p id="percentage">0</p>
+            </div>
+        </div>
+
+
+    </wrapper>
+</body>
+<script type="text/javascript">
+    const input_buy = document.getElementById('buy_value');
+    const input_sell = document.getElementById('sell_value');
+    const input_shipping_rate = document.getElementById('shipping_cost');
+    const log = document.getElementById('values');
+    const log_perc = document.getElementById('percentage');
+
+
+
+    input_buy.addEventListener('input', updateValue);
+    input_sell.addEventListener('input', updateValue);
+    input_shipping_rate.addEventListener('input', updateValue);
+
+
+
+
+    function updateValue(e) {
+        let a = input_buy.value;
+        let b = input_sell.value;
+        let c = input_shipping_rate.value;
+        console.log(e);
+        const profit = (b - (b * 0.03) - a - c).toFixed(2);
+        console.log(profit);
+        log.textContent = profit + ' PLN';
+        const perc = ((a + profit) / a).toFixed(4);
+        const fixedPerc = parseInt(String(perc).split('.')[1]) / 100 + '%';
+        log_perc.textContent = fixedPerc;
+    }
+</script>
+
+</html>

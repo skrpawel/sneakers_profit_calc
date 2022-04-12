@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: #333;
+    background-image: url('bg.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+.profit_calc {
+    padding: 20px;
+    border: 1px solid #000;
+    display: grid;
+    justify-items: center;
+    background-color:rgba(255, 255, 255, 0.8);
+}
+
+.number__input {
+    align-self: center;
+    padding: 10px;
+}
+
+h3 {
+    margin: 0;
+}
+
+#values, #percentage {
+    margin: 0;
+    color: green;
+    font-weight: bold;
+    font-size: 22px;
+}
