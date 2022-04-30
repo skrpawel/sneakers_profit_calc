@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="style.css">
-    <title>SNKRS PROFIT CALCULATOR</title>
+    <title>Are you making any money?</title>
     <script defer type="text/javascript" src="main.js"></script>
 </head>
 
@@ -15,23 +15,34 @@
 <body>
     <wrapper>
         <header>
-            <h1>SNKRS PROFIT <br>CALCULATOR</h1>
+            <h1>SNEAKERS <span id="profit_h1">PROFIT</span> <br>CALCULATOR</h1>
 
         </header>
         <main>
             <div class="box">
-                <label for="pet-select">Choose a pet:</label>
+                <div id="form-box">
+                    <label for="from-select">Wybierz sposób opodatkowania</label>
+                    <select name="form" id="form-select" onchange="selectHandler()">
+                        <option value="">--WYBIERZ--</option>
+                        <option value="ryczaltV">Ryczałt bez VAT</option>
+                        <option value="ryczaltBez">Ryczałt + VAT</option>
+                        <option value="szara">Szara strefa</option>
+                    </select>
 
-                <select name="pets" id="pet-select">
-                    <option value="">--Please choose an option--</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                </select>
+                    <label for="shoes_cost_input">Podaj koszt zakupu</label>
+                    <input type="number" pattern="[0-9]*" inputmode="decimal">
 
+                    <label for="shipping_cost_input">Podaj koszt wysyłki</label>
+                    <input type="number" pattern="[0-9]*" inputmode="decimal">
+
+                    <label for="selling_price_input">Podaj cenę sprzedaży</label>
+                    <input type="number" pattern="[0-9]*" inputmode="decimal">
+
+                    <span>Zysk</span>
+                    <span>0</span>
+                    <span>Zwrot</span>
+                    <span>Elo</span>
+                </div>
             </div>
             <!-- <div class="profit_calc">
                 <h1>Ryczałt 3%</h1>
@@ -62,7 +73,7 @@
             </div> -->
         </main>
         <footer>
-            Created by Pawel
+            Created by <span>CRUNCHY</span>
         </footer>
     </wrapper>
 </body>
