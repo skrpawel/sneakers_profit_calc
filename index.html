@@ -11,66 +11,39 @@
 </head>
 
 
-
 <body>
     <wrapper>
         <header>
             <h1>SNEAKERS <span id="profit_h1">PROFIT</span> <br>CALCULATOR</h1>
-
         </header>
         <main>
             <div class="box">
-                <div id="form-box">
+                <form id="form-box">
                     <label for="from-select">Wybierz sposób opodatkowania</label>
                     <select name="form" id="form-select" onchange="selectHandler()">
                         <option value="">--WYBIERZ--</option>
-                        <option value="ryczaltV">Ryczałt bez VAT</option>
-                        <option value="ryczaltBez">Ryczałt + VAT</option>
-                        <option value="szara">Szara strefa</option>
+                        <option value="ryczaltBez">Ryczałt bez VAT</option>
+                        <option value="szara">Brak firmy</option>
                     </select>
 
                     <label for="shoes_cost_input">Podaj koszt zakupu</label>
-                    <input type="number" pattern="[0-9]*" inputmode="decimal">
+                    <input name="shoes_cost_input" id="shoes_cost_input" type="number" pattern="[0-9]*"
+                        inputmode="decimal">
 
                     <label for="shipping_cost_input">Podaj koszt wysyłki</label>
-                    <input type="number" pattern="[0-9]*" inputmode="decimal">
+                    <input name="shipping_cost_inpu" id="shipping_cost_input" type="number" pattern="[0-9]*"
+                        inputmode="decimal">
 
                     <label for="selling_price_input">Podaj cenę sprzedaży</label>
-                    <input type="number" pattern="[0-9]*" inputmode="decimal">
+                    <input name="selling_price_input" id="selling_price_input" type="number" pattern="[0-9]*"
+                        inputmode="decimal">
 
                     <span>Zysk</span>
-                    <span>0</span>
+                    <span id="profit_value">?</span>
                     <span>Zwrot</span>
                     <span>Elo</span>
-                </div>
+                </form>
             </div>
-            <!-- <div class="profit_calc">
-                <h1>Ryczałt 3%</h1>
-                <label>Cena zakupu</label>
-                <div class="number__input">
-                    <input type="text" name="buy_value" id="buy_value" placeholder="Podaj cenę zakupu">
-                </div>
-                <label>Czy płacisz PCC</label>
-                <div class="number__input">
-                    <input type="checkbox">
-                </div>
-                <label>Cena sprzedaży</label>
-                <div class="number__input">
-                    <input type="text" name="sell_value" id="sell_value" placeholder="Podaj cenę sprzedaży">
-                </div>
-                <label>Koszt wysyłki</label>
-                <div class="number__input">
-                    <input type="text" name="shipping_cost" id="shipping_cost" placeholder="Podaj koszt">
-                </div>
-                <h3>Zysk</h3>
-                <div class="number__input">
-                    <p id="values">0</p>
-                </div>
-                <h3>Zwrot</h3>
-                <div class="number__input">
-                    <p id="percentage">0</p>
-                </div>
-            </div> -->
         </main>
         <footer>
             Created by <span>CRUNCHY</span>
