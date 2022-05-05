@@ -1,3 +1,4 @@
+const loader = document.getElementById('preloader');
 const input_cost = document.getElementById('shoes_cost_input');
 const input_shipping_rate = document.getElementById('shipping_cost_input');
 const input_sell = document.getElementById('selling_price_input');
@@ -8,8 +9,9 @@ const span_h1 = document.getElementById('profit_h1');
 const profit_value = document.getElementById('profit_value');
 const percent_value = document.getElementById('percent_value');
 
-
-
+window.addEventListener("load", function () {
+    loader.style.display = "none";
+});
 
 function selectHandler() {
 
