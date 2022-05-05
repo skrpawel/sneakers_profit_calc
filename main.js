@@ -4,9 +4,9 @@ const input_sell = document.getElementById('selling_price_input');
 const select_form = document.getElementById('form-select');
 const box_form = document.getElementById('form-box');
 const log = document.getElementById('values');
-const log_perc = document.getElementById('percentage');
 const span_h1 = document.getElementById('profit_h1');
 const profit_value = document.getElementById('profit_value');
+const percent_value = document.getElementById('percent_value');
 
 
 
@@ -17,14 +17,15 @@ function selectHandler() {
         span_h1.style.backgroundImage = "url('mr_dead.png')";
         span_h1.style.backgroundPosition = "center center";
 
-        playSound('./mr.mov')
+        return playSound('./mr.mov')
     }
+    span_h1.style.backgroundImage = "url('usd.webp')";
 
 }
 
 function playSound(url) {
     const audio = new Audio(url);
-    audio.volume = .03;
+    audio.volume = .005;
     audio.play();
 }
 
@@ -46,6 +47,14 @@ function calculateProfit(a, b, c) {
     return '?';
 }
 
+function calculatePercentage(a, b, c) {
+    if (select_form.value == 'ryczaltBez') {
+        return (c * 100) / (a + b + (c * 0.03)) - 100;
+    }
+
+    return (c * 100) / (a + b) - 100;
+}
+
 
 
 function getValues() {
@@ -53,18 +62,40 @@ function getValues() {
     let shipCost = +input_shipping_rate.value;
     let sellPrice = +input_sell.value;
 
-    return calculateProfit(shoeCost, shipCost, sellPrice);
+    return [shoeCost, shipCost, sellPrice];
 }
-
 
 function updateProfit() {
     if (select_form.value) {
-        let profit = getValues();
-        profit_value.style.color = 'green';
-        return profit_value.textContent = profit + ' PLN';
+        let [a, b, c] = getValues();
+        let profit = calculateProfit(a, b, c).toFixed(2);
+        let percent = '?';
+        if (profit !== '?') {
+            percent = (calculatePercentage(a, b, c)).toFixed(2);
+        }
+
+        if (+profit > 0) {
+            profit_value.style.color = 'green';
+            percent_value.style.color = 'green';
+        }
+
+        if (+profit <= 0) {
+            profit_value.style.color = 'red';
+            percent_value.style.color = 'red';
+        }
+
+        profit_value.textContent = profit + ' PLN';
+
+        percent_value.textContent = percent + ' %';
+
+
+        return
     }
 
-    return profit_value.textContent = 'Wybierz formę opdatkowania';
+    profit_value.style.color = 'white';
+    percent_value.style.color = 'white';
+    profit_value.textContent = 'Wybierz formę opdatkowania';
+    return percent_value.textContent = '0 %';
 }
 
 box_form.addEventListener('input', updateProfit);

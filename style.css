@@ -36,7 +36,7 @@ h1 {
 }
 
 #profit_h1 {
-    color: white;  /* Fallback: assume this color ON TOP of image */
+    color: white; 
     background: url(usd.webp) no-repeat;
     background-size: cover;
     background-clip: text;
