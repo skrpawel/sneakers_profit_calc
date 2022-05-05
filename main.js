@@ -70,7 +70,7 @@ function getValues() {
 function updateProfit() {
     if (select_form.value) {
         let [a, b, c] = getValues();
-        let profit = calculateProfit(a, b, c).toFixed(2);
+        let profit = (calculateProfit(a, b, c)).toFixed(2);
         let percent = '?';
         if (profit !== '?') {
             percent = (calculatePercentage(a, b, c)).toFixed(2);
